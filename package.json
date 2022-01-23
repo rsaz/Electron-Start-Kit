@@ -1,0 +1,27 @@
+{
+  "name": "electron-bootstrap-app",
+  "version": "1.0.0",
+  "description": "Electron Bootstrap app",
+  "main": "compiled/src/Main.js",
+  "author": "Richard Zampieri",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf compiled",
+    "build": "tsc",
+    "postbuild": "copyfiles src/assets/*.* compiled/",
+    "start": "yarn build && electron ./compiled/src/Main.js",
+    "dev": "concurrently \"tsc -w\" \"electron .\""
+  },
+  "dependencies": {
+    "electron": "^16.0.7",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "concurrently": "^7.0.0",
+    "copyfiles": "^2.4.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "path": "^0.12.7",
+    "rimraf": "^3.0.2"
+  }
+}
